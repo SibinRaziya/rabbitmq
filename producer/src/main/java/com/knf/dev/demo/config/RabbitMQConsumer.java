@@ -1,5 +1,6 @@
 package com.knf.dev.demo.config;
 
+import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +9,9 @@ public class RabbitMQConsumer {
 
 
     @RabbitListener(queues = {"${rabbitmq.queue.name}"})
-    public void consume(String message) {
+    public void consume(Message message) {
 
+        System.out.println("Message arrived! Message: " + message.getBody());
         System.out.println("Message arrived! Message: " + message);
+        System.out.println("Message arrived! Message: " + message.toString());
     } }
