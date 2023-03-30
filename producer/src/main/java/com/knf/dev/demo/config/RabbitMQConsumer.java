@@ -9,9 +9,8 @@ public class RabbitMQConsumer {
 
 
     @RabbitListener(queues = {"${rabbitmq.queue.name}"})
-    public void consume(Message message) {
+    public void consume(Object message) {
 
-        System.out.println("Message arrived! Message: " + message.getBody());
         System.out.println("Message arrived! Message: " + message);
         System.out.println("Message arrived! Message: " + message.toString());
     } }
